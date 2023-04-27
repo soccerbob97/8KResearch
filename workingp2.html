@@ -1,0 +1,3036 @@
+soup  <html lang="en">
+ <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <!-- Check Browser, as well as Hostname and set JS, CSS, Favicon path based on that-->
+  <!-- Favicon -->
+  <!-- cpcommit -->
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="https://www.sec.gov/favicon.ico"> -->
+  <script>
+   (function () {
+                        var hostName = window.location.hostname;
+
+                        var browserAccepted = function () {
+
+                                var ua = window.navigator.userAgent;
+                                var trident = ua.indexOf('Trident/'); //IE 11;
+                                var msie = ua.indexOf('MSIE '); // IE 10 or older
+                                if (msie > 0) {
+                                        return false;
+                                }
+                                return true;
+                        }();
+
+                        var pathToLibs = './js';
+                        var pathToError = '/';
+                        if (hostName === 'www-test.sec.gov' || hostName === 'www.sec.gov') {
+                                pathToLibs = './ixviewer/js';
+                                pathToError = '/ixviewer/';
+                        }
+                        if (browserAccepted) {
+
+                                // css
+                                document
+                                        .write('<link rel="stylesheet" href=' + pathToLibs + '/css/custom-bootstrap.css>');
+                                document
+                                        .write('<link rel="stylesheet" href=' + pathToLibs + '/lib/fontawesome/css/all.min.css>');
+                                document
+                                        .write('<link rel="stylesheet" href=' + pathToLibs + '/css/app.css>');
+
+                                // js
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/jquery-3.3.1.slim.min.js"><\/script>');
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/popper.min.js"><\/script>');
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/bootstrap.min.js"><\/script>');
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/moment.js"><\/script>');
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/vanilla-picker.min.js"><\/script>');
+                                document
+                                        .write('<script type="text/javascript" src="' + pathToLibs + '/lib/he.js"><\/script>');
+
+                                var date = new Date();
+                                var todaysDate = date.getDate() + '-' + (date.getMonth() + 1) + '-'
+                                        + date.getFullYear();
+                                document.write('<script type = "text/javascript" defer=true src="'
+                                        + pathToLibs + '/production.min.js?d=' + todaysDate
+                                        + '"><\/script>');
+                        } else {
+                                // user us on a browser that we do not support
+                                var currentUrl = window.location.href.split('?')[0];
+                                var browserError = currentUrl.substring(0, currentUrl
+                                        .lastIndexOf('/'));
+                                browserError += pathToError + 'browser-error.html?url='
+                                        + encodeURIComponent(window.location.href);
+                                window.location.href = browserError;
+                        }
+                })();
+  </script>
+  <link href="./ixviewer/js/css/custom-bootstrap.css" rel="stylesheet"/>
+  <link href="./ixviewer/js/lib/fontawesome/css/all.min.css" rel="stylesheet"/>
+  <link href="./ixviewer/js/css/app.css" rel="stylesheet"/>
+  <script src="./ixviewer/js/lib/jquery-3.3.1.slim.min.js" type="text/javascript">
+  </script>
+  <script src="./ixviewer/js/lib/popper.min.js" type="text/javascript">
+  </script>
+  <script src="./ixviewer/js/lib/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="./ixviewer/js/lib/moment.js" type="text/javascript">
+  </script>
+  <script src="./ixviewer/js/lib/vanilla-picker.min.js" type="text/javascript">
+  </script>
+  <style>
+   .picker_wrapper.no_alpha .picker_alpha{display:none}.picker_wrapper.no_editor .picker_editor{position:absolute;z-index:-1;opacity:0}.picker_wrapper.no_cancel .picker_cancel{display:none}.layout_default.picker_wrapper{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-flow:row wrap;-webkit-box-pack:justify;justify-content:space-between;-webkit-box-align:stretch;align-items:stretch;font-size:10px;width:25em;padding:.5em}.layout_default.picker_wrapper input,.layout_default.picker_wrapper button{font-size:1rem}.layout_default.picker_wrapper>*{margin:.5em}.layout_default.picker_wrapper::before{content:'';display:block;width:100%;height:0;-webkit-box-ordinal-group:2;order:1}.layout_default .picker_slider,.layout_default .picker_selector{padding:1em}.layout_default .picker_hue{width:100%}.layout_default .picker_sl{-webkit-box-flex:1;flex:1 1 auto}.layout_default .picker_sl::before{content:'';display:block;padding-bottom:100%}.layout_default .picker_editor{-webkit-box-ordinal-group:2;order:1;width:6.5rem}.layout_default .picker_editor input{width:100%;height:100%}.layout_default .picker_sample{-webkit-box-ordinal-group:2;order:1;-webkit-box-flex:1;flex:1 1 auto}.layout_default .picker_done,.layout_default .picker_cancel{-webkit-box-ordinal-group:2;order:1}.picker_wrapper{box-sizing:border-box;background:#f2f2f2;box-shadow:0 0 0 1px silver;cursor:default;font-family:sans-serif;color:#444;pointer-events:auto}.picker_wrapper:focus{outline:none}.picker_wrapper button,.picker_wrapper input{box-sizing:border-box;border:none;box-shadow:0 0 0 1px silver;outline:none}.picker_wrapper button:focus,.picker_wrapper button:active,.picker_wrapper input:focus,.picker_wrapper input:active{box-shadow:0 0 2px 1px dodgerblue}.picker_wrapper button{padding:.4em .6em;cursor:pointer;background-color:whitesmoke;background-image:-webkit-gradient(linear, left bottom, left top, from(gainsboro), to(transparent));background-image:-webkit-linear-gradient(bottom, gainsboro, transparent);background-image:linear-gradient(0deg, gainsboro, transparent)}.picker_wrapper button:active{background-image:-webkit-gradient(linear, left bottom, left top, from(transparent), to(gainsboro));background-image:-webkit-linear-gradient(bottom, transparent, gainsboro);background-image:linear-gradient(0deg, transparent, gainsboro)}.picker_wrapper button:hover{background-color:white}.picker_selector{position:absolute;z-index:1;display:block;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);border:2px solid white;border-radius:100%;box-shadow:0 0 3px 1px #67b9ff;background:currentColor;cursor:pointer}.picker_slider .picker_selector{border-radius:2px}.picker_hue{position:relative;background-image:-webkit-gradient(linear, left top, right top, from(red), color-stop(yellow), color-stop(lime), color-stop(cyan), color-stop(blue), color-stop(magenta), to(red));background-image:-webkit-linear-gradient(left, red, yellow, lime, cyan, blue, magenta, red);background-image:linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);box-shadow:0 0 0 1px silver}.picker_sl{position:relative;box-shadow:0 0 0 1px silver;background-image:-webkit-gradient(linear, left top, left bottom, from(white), color-stop(50%, rgba(255,255,255,0))),-webkit-gradient(linear, left bottom, left top, from(black), color-stop(50%, rgba(0,0,0,0))),-webkit-gradient(linear, left top, right top, from(gray), to(rgba(128,128,128,0)));background-image:-webkit-linear-gradient(top, white, rgba(255,255,255,0) 50%),-webkit-linear-gradient(bottom, black, rgba(0,0,0,0) 50%),-webkit-linear-gradient(left, gray, rgba(128,128,128,0));background-image:linear-gradient(180deg, white, rgba(255,255,255,0) 50%),linear-gradient(0deg, black, rgba(0,0,0,0) 50%),linear-gradient(90deg, gray, rgba(128,128,128,0))}.picker_alpha,.picker_sample{position:relative;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E") left top/contain white;box-shadow:0 0 0 1px silver}.picker_alpha .picker_selector,.picker_sample .picker_selector{background:none}.picker_editor input{font-family:monospace;padding:.2em .4em}.picker_sample::before{content:'';position:absolute;display:block;width:100%;height:100%;background:currentColor}.picker_arrow{position:absolute;z-index:-1}.picker_wrapper.popup{position:absolute;z-index:2;margin:1.5em}.picker_wrapper.popup,.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{background:#f2f2f2;box-shadow:0 0 10px 1px rgba(0,0,0,0.4)}.picker_wrapper.popup .picker_arrow{width:3em;height:3em;margin:0}.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{content:"";display:block;position:absolute;top:0;left:0;z-index:-99}.picker_wrapper.popup .picker_arrow::before{width:100%;height:100%;-webkit-transform:skew(45deg);transform:skew(45deg);-webkit-transform-origin:0 100%;transform-origin:0 100%}.picker_wrapper.popup .picker_arrow::after{width:150%;height:150%;box-shadow:none}.popup.popup_top{bottom:100%;left:0}.popup.popup_top .picker_arrow{bottom:0;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.popup.popup_bottom{top:100%;left:0}.popup.popup_bottom .picker_arrow{top:0;left:0;-webkit-transform:rotate(90deg) scale(1, -1);transform:rotate(90deg) scale(1, -1)}.popup.popup_left{top:0;right:100%}.popup.popup_left .picker_arrow{top:0;right:0;-webkit-transform:scale(-1, 1);transform:scale(-1, 1)}.popup.popup_right{top:0;left:100%}.popup.popup_right .picker_arrow{top:0;left:0}
+  </style>
+  <script src="./ixviewer/js/lib/he.js" type="text/javascript">
+  </script>
+  <script defer="true" src="./ixviewer/js/production.min.js?d=14-4-2023" type="text/javascript">
+  </script>
+  <title>
+   Inline XBRL Viewer
+  </title>
+  <script>
+   bazadebezolkohpepadr="681615669"
+  </script>
+  <script defer="" src="https://www.sec.gov/akam/13/28a0a252" type="text/javascript">
+  </script>
+  <style id="customized-styles" type="text/css">
+   #dynamic-xbrl-form [enabled-taxonomy="true"][continued-taxonomy="false"]{border-top:2px solid #FF6600;border-bottom:2px solid #FF6600;display:inline;} #dynamic-xbrl-form [enabled-taxonomy="true"][continued-main-taxonomy="true"]{box-shadow:-2px 0px 0px 0px #FF6600, 2px 0px 0px 0px #FF6600;} #dynamic-xbrl-form [enabled-taxonomy="true"][text-block-taxonomy="true"]{box-shadow:-2px 0px 0px 0px #FF6600, 2px 0px 0px 0px #FF6600;border-top:none;border-bottom:none;} #dynamic-xbrl-form [highlight-taxonomy="true"]{background-color:#FFD700 !important;} #dynamic-xbrl-form [highlight-taxonomy="true"] > *{background-color:#FFD700 !important;} #dynamic-xbrl-form [selected-taxonomy="true"][continued-main-taxonomy="true"]{box-shadow:-2px 0px 0px 0px #003768, 2px 0px 0px 0px #003768;} #dynamic-xbrl-form [selected-taxonomy="true"][text-block-taxonomy="true"]{box-shadow:-2px 0px 0px 0px #003768, 2px 0px 0px 0px #003768;} #dynamic-xbrl-form [selected-taxonomy="true"][continued-taxonomy="false"]{border:3px solid #003768 !important;display:inline;} #dynamic-xbrl-form [hover-taxonomy="true"]{background-color:rgba(255,0,0,0.3);} #dynamic-xbrl-form .text-block-indicator-left{border-left:.75rem solid ##003768;} #dynamic-xbrl-form .text-block-indicator-right{border-right:.75rem solid ##003768;} .tagged-data-example-1{border-top:2px solid #FF6600;border-bottom:2px solid #FF6600;} .search-results-example-1{background-color:#FFD700;} .tag-shading-exmple-1:hover{background-color:rgba(255,0,0,0.3);} .selected-fact-example-1{border:3px solid #003768 !important;}
+  </style>
+ </head>
+ <body>
+  <noscript>
+   This application relies heavily on JavaScript, you
+                will need to allow JavaScript to use this application.
+  </noscript>
+  <nav class="reboot navbar navbar-expand-md navbar-dark navbar-height bg-sec fixed-top w-100 pl-0">
+   <button aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation" class="reboot navbar-toggler ml-1" data-target="#main-navbar" data-test="" data-toggle="collapse" type="button">
+    Inline Viewer
+   </button>
+   <div class="reboot navbar-height collapse navbar-collapse bg-sec w-100" data-test="main-navbar" id="main-navbar">
+    <ul class="reboot navbar-nav mr-auto bg-inherit">
+     <li class="reboot nav-item dropdown my-auto ml-1">
+      <a accesskey="1" aria-expanded="false" aria-haspopup="true" class="reboot nav-link dropdown-toggle click disabled" data-test="menu-dropdown-link" data-toggle="dropdown" id="menu-dropdown-link" role="button" tabindex="1">
+       <i class="reboot nav-loading fas fa-bars" title="Menu">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Menu
+       </span>
+       <span class="reboot sr-only sr-only-focusable">
+        Menu
+       </span>
+      </a>
+      <div class="reboot dropdown-menu">
+       <a class="reboot dropdown-item click text-body" data-test="menu-dropdown-information" id="menu-dropdown-information" tabindex="1">
+        Information
+       </a>
+       <a class="reboot dropdown-item click text-body" data-test="form-information-instance" id="form-information-instance" tabindex="1" target="_blank">
+        Save XBRL
+                                                        Instance
+       </a>
+       <a class="reboot dropdown-item click text-body" data-test="form-information-zip" id="form-information-zip" tabindex="1" target="_blank">
+        Save XBRL Zip
+                                                        File
+       </a>
+       <a class="reboot dropdown-item click text-body" data-test="form-information-html" id="form-information-html" tabindex="1" target="_blank">
+        Open as HTML
+       </a>
+       <a class="reboot dropdown-item click text-body" data-test="menu-dropdown-settings" id="menu-dropdown-settings" tabindex="1">
+        Settings
+       </a>
+       <a class="reboot dropdown-item click text-body" data-test="form-information-help" id="form-information-help" tabindex="1">
+        Help
+       </a>
+       <span class="reboot dropdown-item-text text-body" id="form-information-version" tabindex="1">
+       </span>
+      </div>
+     </li>
+     <li class="reboot nav-item my-auto ml-1">
+      <a accesskey="2" class="reboot nav-link click disabled meta-required" data-test="sections-dropdown-link" id="sections-dropdown-link" tabindex="2">
+       <i class="reboot fas fa-layer-group" title="Sections">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Sections
+       </span>
+       <span class="reboot sr-only sr-only-focusable">
+        Sections
+       </span>
+      </a>
+     </li>
+     <li class="reboot nav-item my-auto ml-1 mr-1">
+      <form class="reboot my-2 my-lg-0 input-group disabled" data-test="global-search-form" id="global-search-form" novalidate="">
+       <div class="reboot input-group-prepend">
+        <button class="reboot dropdown btn btn-outline-light disabled" data-name="global-search-options" data-toggle="dropdown" tabindex="3" type="button">
+         <i class="reboot nav-loading fas fa-cog" title="Additional Search Options">
+          <span class="reboot sr-only sr-only-focusable">
+           Additional
+                                                                                Search Options
+          </span>
+         </i>
+        </button>
+        <div class="reboot dropdown-menu px-2">
+         <div class="reboot form-check">
+          <input checked="" class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="1"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Include Fact Name
+           </span>
+          </label>
+         </div>
+         <div class="reboot form-check">
+          <input checked="" class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="2"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Include Fact Content
+           </span>
+          </label>
+         </div>
+         <div class="reboot form-check">
+          <input checked="" class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="3"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Include Labels
+           </span>
+          </label>
+         </div>
+         <div class="reboot form-check">
+          <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="4"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Include Definitions
+           </span>
+          </label>
+         </div>
+         <div class="reboot form-check">
+          <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="5"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Include Dimensions
+           </span>
+          </label>
+         </div>
+         <div class="reboot bg-light border p-1">
+          <span class="reboot dropdown-item-text">
+           Reference
+                                                                                Options
+          </span>
+          <div class="reboot form-check">
+           <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="6"/>
+           <label class="reboot form-check-label mb-0">
+            <span class="reboot">
+             Include Topic
+            </span>
+           </label>
+          </div>
+          <div class="reboot form-check">
+           <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="7"/>
+           <label class="reboot form-check-label mb-0">
+            <span class="reboot">
+             Include Sub-Topic
+            </span>
+           </label>
+          </div>
+          <div class="reboot form-check">
+           <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="8"/>
+           <label class="reboot form-check-label mb-0">
+            <span class="reboot">
+             Include Paragraph
+            </span>
+           </label>
+          </div>
+          <div class="reboot form-check">
+           <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="9"/>
+           <label class="reboot form-check-label mb-0">
+            <span class="reboot">
+             Include Publisher
+            </span>
+           </label>
+          </div>
+          <div class="reboot form-check">
+           <input class="reboot form-check-input meta-required" disabled="" name="search-options" tabindex="3" type="checkbox" value="10"/>
+           <label class="reboot form-check-label mb-0">
+            <span class="disabled">
+             Include Section
+            </span>
+           </label>
+          </div>
+         </div>
+         <div class="reboot form-check">
+          <input class="reboot form-check-input" name="search-options" tabindex="3" type="checkbox" value="11"/>
+          <label class="reboot form-check-label mb-0">
+           <span class="reboot">
+            Match Case
+           </span>
+          </label>
+         </div>
+        </div>
+       </div>
+       <input aria-label="Search all Facts and highlight them accordingly." class="reboot form-control disabled" data-test="global-search" disabled="" id="global-search" placeholder="Search Facts" tabindex="4" type="text"/>
+       <div class="reboot input-group-append">
+        <button class="reboot btn btn-outline-light disabled" data-name="global-search-clear" id="search-btn-clear" tabindex="5" type="button">
+         <i class="reboot nav-loading fas fa-times-circle" title="Clear Search">
+         </i>
+         <span class="reboot sr-only sr-only-focusable">
+          Clear
+                                                                        Search
+         </span>
+        </button>
+        <button class="reboot btn btn-outline-light disabled" tabindex="6" type="submit">
+         <i class="reboot nav-loading fas fa-search" title="Submit Search">
+         </i>
+         <span class="reboot sr-only sr-only-focusable">
+          Submit
+                                                                        Search
+         </span>
+        </button>
+       </div>
+      </form>
+     </li>
+     <li class="reboot nav-item dropdown my-auto ml-1">
+      <a accesskey="3" aria-expanded="false" aria-haspopup="true" class="reboot nav-link dropdown-toggle disabled click" data-test="nav-filter-data" data-toggle="dropdown" href="#" id="nav-filter-data" role="button" tabindex="7">
+       <i class="reboot nav-loading fas fa-list-alt" title="Data">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Data
+       </span>
+       <span class="reboot sr-only sr-only-focusable">
+        Data
+       </span>
+      </a>
+      <div class="reboot dropdown-menu">
+       <form class="reboot px-2" data-name="data-dropdown" id="nav-filter-dropdown">
+        <div class="reboot form-check">
+         <input checked="" class="reboot form-check-input" name="data-radios" tabindex="7" type="radio" value="0"/>
+         <label class="reboot form-check-label mb-0">
+          All
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input class="reboot form-check-input" name="data-radios" tabindex="7" type="radio" value="1"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Amounts Only
+          </span>
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input class="reboot form-check-input" name="data-radios" tabindex="7" type="radio" value="2"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Text Only
+          </span>
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input class="reboot form-check-input meta-required" disabled="" name="data-radios" tabindex="7" type="radio" value="3"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Calculations Only
+          </span>
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input class="reboot form-check-input" name="data-radios" tabindex="7" type="radio" value="4"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Negatives Only
+          </span>
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input class="reboot form-check-input" name="data-radios" tabindex="7" type="radio" value="5"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Additional Items Only
+          </span>
+         </label>
+        </div>
+       </form>
+      </div>
+     </li>
+     <li class="reboot nav-item dropdown my-auto ml-1">
+      <a accesskey="4" aria-expanded="false" aria-haspopup="true" class="reboot nav-link dropdown-toggle disabled click" data-test="nav-filter-tags" data-toggle="dropdown" href="#" id="nav-filter-tags" role="button" tabindex="8">
+       <i class="reboot nav-loading fas fa-tags" title="Tags">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Tags
+       </span>
+       <span class="reboot sr-only sr-only-focusable">
+        Tags
+       </span>
+      </a>
+      <div class="reboot dropdown-menu">
+       <form class="reboot px-2" data-name="tags-dropdown" id="nav-filter-tags-dropdown">
+        <div class="reboot form-check">
+         <input aria-label="Radio Button for All Tag Types" checked="" class="reboot form-check-input" name="tags-radios" tabindex="8" type="radio" value="0"/>
+         <label class="reboot form-check-label mb-0">
+          All
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input aria-label="Radio Button for Standard Only Tag Types" class="reboot form-check-input" name="tags-radios" tabindex="8" type="radio" value="1"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span>
+           Standard Only
+          </span>
+         </label>
+        </div>
+        <div class="reboot form-check">
+         <input aria-label="Radio Button for Custom Only Tag Types" class="reboot form-check-input meta-required" disabled="" name="tags-radios" tabindex="8" type="radio" value="2"/>
+         <label class="reboot form-check-label mb-0">
+          <i class="reboot far fa-question-circle" title="Facts whose tags are outside the realm of DEI, US-GAAP, etc.">
+          </i>
+          <i class="reboot far fa-clock d-none performance-concern" title="The first time choosing this will take a few moments.">
+          </i>
+          <span class="reboot">
+           Custom Only
+          </span>
+         </label>
+        </div>
+       </form>
+      </div>
+     </li>
+     <li class="reboot nav-item dropdown my-auto ml-1">
+      <a accesskey="5" aria-expanded="false" aria-haspopup="true" class="reboot nav-link dropdown-toggle disabled click" data-test="nav-filter-more" data-toggle="dropdown" href="#" id="nav-filter-more" role="button" tabindex="9">
+       <i class="reboot nav-loading fas fa-filter" id="loading-more-filters" title="More Filters">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        More Filters
+       </span>
+       <span class="reboot sr-only sr-only-focusable">
+        More Filters
+       </span>
+       <span class="reboot badge badge-warning" title="Total active filters.">
+       </span>
+      </a>
+      <div class="reboot dropdown-menu dropdown-menu-width">
+       <label class="reboot dropdown-item-text d-none performance-concern">
+        Selecting any of the below will take a few moments.
+       </label>
+       <div class="reboot accordion" id="more-filters-accordion">
+        <form class="reboot" data-test="more-filters-form">
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-periods" data-test="Period" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Periods
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Period-count" id="filters-periods-count">
+             <i class="reboot fas fa-spinner fa-spin">
+             </i>
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-periods">
+           <!-- Below is populated dynamically VIA JS -->
+           <div class="reboot list-group list-group-flush">
+           </div>
+          </div>
+         </div>
+        </form>
+        <form>
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-measures" data-test="Measures" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Measures
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Measures-count" id="filters-measures-count">
+             <i class="reboot fas fa-spinner fa-spin">
+             </i>
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-measures">
+           <!-- Below is populated dynamically VIA JS -->
+           <div class="reboot list-group list-group-flush">
+           </div>
+          </div>
+         </div>
+        </form>
+        <form>
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-axis" data-test="Axis" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Axis
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Axis-count" id="filters-axis-count">
+             <i class="fas fa-spinner fa-spin">
+             </i>
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-axis">
+           <div class="reboot list-group list-group-flush d-none">
+            <div class="reboot d-flex justify-content-between align-items-center w-100 px-1">
+             <div class="reboot form-check">
+              <input class="reboot form-check-input" id="axes-all-0" tabindex="9" title="Select/Deselect all options below." type="checkbox"/>
+              <label class="reboot form-check-label mb-0">
+               <a class="reboot" data-toggle="collapse" href="#axes-filters-accordion-0" tabindex="9">
+                Explicit
+               </a>
+              </label>
+             </div>
+             <span class="reboot badge badge-secondary" id="axis-explicit-count">
+             </span>
+            </div>
+           </div>
+           <!-- Below is populated dynamically VIA JS -->
+           <div class="reboot list-group list-group-flush d-none">
+            <div class="reboot d-flex justify-content-between align-items-center w-100 px-1">
+             <div class="reboot form-check">
+              <input class="reboot form-check-input" id="axes-all-1" tabindex="9" title="Select/Deselect all options below." type="checkbox"/>
+              <label class="reboot form-check-label mb-0">
+               <a class="reboot" data-toggle="collapse" href="#axes-filters-accordion-1" tabindex="9">
+                Typed
+               </a>
+              </label>
+             </div>
+             <span class="reboot badge badge-secondary" id="axis-typed-count">
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </form>
+        <form>
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-members" data-test="Members" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Members
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Members-count" id="filters-members-count">
+             <i class="reboot fas fa-spinner fa-spin">
+             </i>
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-members">
+           <div class="reboot list-group list-group-flush d-none">
+            <div class="reboot d-flex justify-content-between align-items-center w-100 px-1">
+             <div class="reboot form-check">
+              <input class="reboot form-check-input" id="members-all-0" tabindex="9" title="Select/Deselect all options below." type="checkbox"/>
+              <label class="reboot form-check-label mb-0">
+               <a class="reboot" data-toggle="collapse" href="#members-filters-accordion-0" tabindex="9">
+                Explicit
+               </a>
+              </label>
+             </div>
+             <span class="reboot badge badge-secondary" id="members-explicit-count">
+             </span>
+            </div>
+           </div>
+           <!-- Below is populated dynamically VIA JS -->
+           <div class="reboot list-group list-group-flush d-none">
+            <div class="reboot d-flex justify-content-between align-items-center w-100 px-1">
+             <div class="reboot form-check">
+              <input class="reboot form-check-input" id="members-all-1" tabindex="9" title="Select/Deselect all options below." type="checkbox"/>
+              <label class="reboot form-check-label mb-0">
+               <a class="reboot" data-toggle="collapse" href="#members-filters-accordion-1" tabindex="9">
+                Typed
+               </a>
+              </label>
+             </div>
+             <span class="reboot badge badge-secondary" id="members-typed-count">
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </form>
+        <form>
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-scales" data-test="Scale" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Scale
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Scale-count" id="filters-scales-count">
+             <i class="reboot fas fa-spinner fa-spin">
+             </i>
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-scales">
+           <!-- Below is populated dynamically VIA JS -->
+           <div class="reboot list-group list-group-flush">
+           </div>
+          </div>
+         </div>
+        </form>
+        <form>
+         <div class="reboot mx-1">
+          <div class="reboot px-0 py-0">
+           <a class="reboot d-flex justify-content-between align-items-center w-100 click text-primary" data-target="#user-filters-balances" data-test="Balance" data-toggle="collapse" href="#" tabindex="9">
+            <span class="reboot">
+             Balance
+            </span>
+            <span class="reboot badge badge-secondary" data-test="Balance-count" id="filters-balances-count">
+             2
+            </span>
+           </a>
+          </div>
+          <div class="reboot collapse height-200 overflow-y-auto" data-parent="#more-filters-accordion" id="user-filters-balances">
+           <div class="reboot d-flex justify-content-between align-items-center w-100 px-2">
+            <div class="reboot form-check">
+             <input class="reboot form-check-input" id="user-filters-balances-debit" tabindex="9" title="Select/Deselect this option." type="checkbox"/>
+             <label class="reboot form-check-label mb-0">
+              Debit
+             </label>
+            </div>
+           </div>
+           <div class="reboot d-flex justify-content-between align-items-center w-100 px-2">
+            <div class="reboot form-check">
+             <input class="reboot form-check-input" id="user-filters-balances-credit" tabindex="9" title="Select/Deselect this option." type="checkbox"/>
+             <label class="reboot form-check-label mb-0">
+              Credit
+             </label>
+            </div>
+           </div>
+          </div>
+         </div>
+        </form>
+       </div>
+      </div>
+     </li>
+     <li class="reboot nav-item d-none my-auto ml-1" data-test="current-filters-reset" id="current-filters-reset">
+      <a accesskey="7" class="reboot nav-link dropdown-toggle text-danger disabled click" data-name="current-filters-reset" href="#" id="current-filters-reset-all" tabindex="11">
+       <i class="reboot nav-loading fas fa-redo">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Reset All
+                                                        Filters
+       </span>
+      </a>
+     </li>
+     <li class="reboot nav-item dropdown d-none my-auto ml-1" data-test="links-dropdown" id="links-dropdown">
+      <a accesskey="8" aria-expanded="false" aria-haspopup="true" class="reboot nav-link dropdown-toggle disabled click" data-toggle="dropdown" href="#" id="additional-links-dropdown" role="button" tabindex="12">
+       <i class="reboot nav-loading fas fa-link">
+       </i>
+       <span class="reboot d-md-none d-lg-inline">
+        Links
+       </span>
+      </a>
+      <div class="reboot dropdown-menu dropdown-menu-width w-auto" id="links-dropdown-content">
+      </div>
+     </li>
+    </ul>
+    <ul class="reboot navbar-nav pull-right bg-inherit">
+     <li class="reboot nav-item my-auto ml-1">
+      <a accesskey="9" class="reboot nav-link click" data-test="facts-menu" id="facts-menu" tabindex="13">
+       Facts
+       <span class="reboot taxonomy-total-count badge badge-light">
+        <i class="fas fa-spinner fa-spin">
+        </i>
+       </span>
+      </a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="reboot main-container">
+   <div class="reboot px-0" data-test="error-container" id="error-container">
+   </div>
+   <div class="reboot jumbotron h-100 d-none" data-test="xbrl-form-loading" id="xbrl-form-loading">
+    <h2 class="reboot display-4 text-center">
+     <i class="reboot fas fa-spinner fa-spin">
+     </i>
+     Loading Inline Form.
+    </h2>
+   </div>
+   <div class="reboot left-sidenav col-sm-3 bg-light overflow-x-auto invisible" data-test="sections-menu" id="sections-menu">
+    <div class="reboot mb-2">
+     <span class="reboot lead">
+      Tagged Sections
+     </span>
+     <a class="reboot float-right click color-inherit" id="sections-menu-toggle" tabindex="2">
+      <i class="reboot fas fa-times-circle mt-2 text-dark">
+      </i>
+     </a>
+    </div>
+    <form class="reboot my-2 my-lg-0 input-group" data-name="sections-menu-search" id="sections-menu-search-submit" novalidate="">
+     <div class="reboot input-group-prepend d-none" id="sections-search-additional">
+      <button class="reboot dropdown btn btn-sec" data-toggle="dropdown" tabindex="2" type="button">
+       <i class="reboot nav-loading fas fa-cog">
+       </i>
+      </button>
+      <div class="reboot dropdown-menu px-2">
+       <div class="reboot form-check">
+        <input checked="" class="reboot form-check-input" name="sections-search-options" tabindex="2" type="radio" value="1"/>
+        <label class="reboot form-check-label">
+         Search in All.
+        </label>
+       </div>
+       <div class="reboot form-check">
+        <input class="reboot form-check-input" name="sections-search-options" tabindex="2" type="radio" value="2"/>
+        <label class="reboot form-check-label">
+         Search in Internal
+                                                                Sections Only.
+        </label>
+       </div>
+       <div class="reboot form-check">
+        <input class="reboot form-check-input" name="sections-search-options" tabindex="2" type="radio" value="3"/>
+        <label class="reboot form-check-label">
+         Search in External
+                                                                Sections Only.
+        </label>
+       </div>
+      </div>
+     </div>
+     <input aria-label="Search all Sections by their associated label." class="reboot form-control" data-test="sections-search" id="sections-search" name="search-sections" placeholder="Search Sections" required="" tabindex="2" type="text"/>
+     <div class="reboot input-group-append">
+      <button class="reboot btn btn-sec" data-name="sections-menu-search-clear" id="section-menu-search-btn-clear" tabindex="2" type="button">
+       <i class="nav-loading fas fa-times-circle" title="Clear Sections Search">
+       </i>
+       <span class="reboot sr-only sr-only-focusable">
+        Clear
+                                                        Sections Search
+       </span>
+      </button>
+      <button class="reboot btn btn-sec" tabindex="2" type="submit">
+       <i class="reboot nav-loading fas fa-search" title="Submit Sections Search">
+       </i>
+       <span class="reboot sr-only sr-only-focusable">
+        Submit
+                                                        Sections Search
+       </span>
+      </button>
+     </div>
+    </form>
+    <hr/>
+    <div class="reboot accordion" id="tagged-sections">
+     <!-- Below is populated dynamically VIA JS -->
+    </div>
+   </div>
+   <div class="reboot left-sidenav col-sm-3 bg-light overflow-x-auto invisible" data-test="help-menu" id="help-menu">
+    <div class="reboot mb-2">
+     <span class="reboot lead">
+      Help
+     </span>
+     <a class="reboot float-right click" data-test="help-menu-close" id="help-menu-close">
+      <i class="reboot fas fa-times-circle mt-2">
+      </i>
+     </a>
+    </div>
+    <div class="reboot accordion" id="help-sections">
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-getting-started" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Getting Started
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-getting-started">
+       <p class="reboot m-2">
+        The Inline XBRL viewer allows a user
+                                                        to quickly and easily review details of the tagged information in
+                                                        an Inline document by automatically placing a top and bottom
+                                                        highlight border around each tagged numeric fact and left and
+                                                        right border for each block tagged fact. Hovering over a tagged
+                                                        fact will highlight (shade) all content related to the tagged
+                                                        fact, and clicking on a tagged fact will reveal its tagging
+                                                        details in the Fact Review Window. Navigation, search and filter
+                                                        options are also provided to easily refine and identify specific
+                                                        types of tagged information.
+       </p>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-fact-review-window" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Fact Review Window
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-fact-review-window">
+       <p class="reboot m-2">
+        The Fact Review Window shows the tagging
+                                                        details for the currently selected fact, which is highlighted
+                                                        with a solid blue border. There are four categories of fact detail
+                                                        which can be viewed; an "N/A" value indicates there is no
+                                                        available information for the item within the given category:
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Attributes - All primary information (as
+                                                                applicable) describing the tagged fact including period, sign,
+                                                                decimals, dimensional detail (axes and members), scale, measure
+                                                                and data type.
+        </li>
+        <li class="reboot">
+         Labels - Detailed documentation
+                                                                (definition) for the tag used, and other labels.
+        </li>
+        <li class="reboot">
+         References - Authoritative reference
+                                                                information (as applicable) for the selected tag.
+        </li>
+        <li class="reboot">
+         Calculation - Balance and calculation
+                                                                hierarchy details (numeric non-dimensioned items only).
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-search" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Searching
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-search">
+       <p class="reboot m-2">
+        There are two ways to search the
+                                                        document: FACTS AND SECTIONS. To search information, enter a
+                                                        keyword in a search box and select the magnifying glass icon to
+                                                        return matching results. Search operators "and" (via "AND" or
+                                                        "&amp;") and "or" (via "OR" or "|") are available to further refine a
+                                                        search.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         FACTS
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Search Facts box can be used to find
+                                                        tagged facts matching entered keywords. By default, tag name, tag
+                                                        labels, and tagged content are included in Search. Tagged facts
+                                                        matching the search criteria are shown with a yellow-colored
+                                                        (default) shading on the page and appear in the Facts List.
+                                                        Select the "X" button to the left of the magnifying glass icon to
+                                                        clear the search.
+       </p>
+       <p class="reboot m-2">
+        The content included in Search can be increased to
+                                                        included tag definitions, dimensions, and authoritative
+                                                        references by selecting the cog / wheel icon to the left of the
+                                                        search box. See Settings for more information.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         SECTIONS
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Search Sections box can be used to
+                                                        filter the tagged sections of the financial statements.
+       </p>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-filter" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Filters
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-filter">
+       <p class="reboot m-2">
+        Filters change the number of highlighted
+                                                        facts and items in the fact list by providing several ways to
+                                                        review and pinpoint certain tagged information. Multiple filters
+                                                        can be used at once.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         DATA FILTERS
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        These filter options allow the user to
+                                                        refine the highlighted tagged facts by data type:
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         All - Displays all tagged data (default)
+        </li>
+        <li class="reboot">
+         Amounts Only - Numeric facts only
+        </li>
+        <li class="reboot">
+         Text Only - Textual facts only
+        </li>
+        <li class="reboot">
+         Calculations Only - Numeric facts
+                                                                participating in a calculation only
+        </li>
+        <li class="reboot">
+         Negatives Only - Negative Numeric amounts
+                                                                only
+        </li>
+        <li class="reboot">
+         Additional Items Only - Tagged facts
+                                                                without a corresponding HTML presentation (i.e., hidden facts)
+                                                                only
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         TAGS FILTER
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        These filters allow the user to refine
+                                                        the highlighted facts by tag type:
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         All - Displays all tagged data (default)
+        </li>
+        <li class="reboot">
+         Standard Only- Facts with standard tags
+                                                                from a common taxonomy (e.g., US_GAAP, IFRS, DEI).
+        </li>
+        <li class="reboot">
+         Custom Only - Facts with extension
+                                                                "custom" tags unique to the entity's document.
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         MORE FILTERS
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        Additional filters that allow user to
+                                                        further refine the highlighted facts:
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Periods - List of all used context years
+                                                                and reporting periods
+        </li>
+        <li class="reboot">
+         Measures - List of all used units of
+                                                                measure (e.g., US Dollars); as applicable
+        </li>
+        <li class="reboot">
+         Axis - List of all used axis
+                                                                (dimensions); as applicable (dimensions); as applicable
+        </li>
+        <li class="reboot">
+         Scale - List of all used scaled options
+                                                                (e.g., thousands, millions); as applicable
+        </li>
+        <li class="reboot">
+         Balance - Debit, credit; as applicable
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        Multiple filters work in conjunction
+                                                        with each other. For example, selecting the "Amounts Only" Data
+                                                        filter and "Custom Only" Tags filter will highlight only numeric
+                                                        tagged facts using custom tags and list them in the fact list.
+                                                        Active filters are displayed in the Filter toolbar as they are
+                                                        selected. Active filters can be removed individually by
+                                                        unchecking or selecting ALL option for each filter, or all at
+                                                        once via the "Reset All Filters" option.
+       </p>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-facts-results-list" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Facts List (Results)
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-facts-results-list">
+       <p class="reboot m-2">
+        On the toolbar, select the "count" to
+                                                        the right of the word Facts (e.g., Facts 234) to reveal the Facts
+                                                        List results - a navigable listing of all currently highlighted
+                                                        tagged facts. The count represents the current number of facts.
+       </p>
+       <p class="reboot m-2">
+        By default, all tagged facts are
+                                                        displayed in the Fact List Results. The list content and count
+                                                        reflects the currently highlighted facts (i.e., both Filters and
+                                                        Search criteria refine the list to match the highlighted tagged
+                                                        facts). Navigation controls are available to move through the
+                                                        list as well as move the current view to the corresponding
+                                                        highlighted fact location automatically. When a fact in the Facts
+                                                        Results List is selected, it will reveal the Fact Review Window.
+       </p>
+       <p class="reboot m-2">
+        Certain letters may appear to the right
+                                                        of an item in the Fact Result list to indicate a certain
+                                                        property. If the letter "A" appears for a fact, it indicates the
+                                                        fact is additional data (i.e., hidden with potentially no
+                                                        corresponding HTML presentation). If the letter "C" appears, the
+                                                        fact is tagged with a custom tag. If the letter "D" appears, the
+                                                        fact is tagged with dimensional information.
+       </p>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-tagged-sections" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Sections
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-tagged-sections">
+       <p class="reboot m-2">
+        The SECTIONS toolbar item provides a
+                                                        listing of the tagged sections of the Inline document. Sections
+                                                        are divided into three groups:
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Document &amp; Entity Information
+        </li>
+        <li class="reboot">
+         Financial Statements
+        </li>
+        <li class="reboot">
+         Notes to the Financial Statements
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        By expanding a group and selecting a
+                                                        section item in the listing, Inline XBRL viewer will navigate to that section.
+                                                        When the Tagged Sections feature is open, the Search Sections box
+                                                        will additionally filter the list of sections to only those
+                                                        sections that match the entered criteria.
+       </p>
+      </div>
+     </div>
+     <div class="reboot card">
+      <div class="reboot card-header px-0 py-0">
+       <h5 class="reboot mb-0">
+        <button class="reboot btn btn-link d-flex justify-content-between align-items-center w-100" data-target="#help-tagged-menu" data-toggle="collapse" type="button">
+         <span class="reboot font-size-1">
+          Menu
+         </span>
+        </button>
+       </h5>
+      </div>
+      <div class="reboot collapse" data-parent="#help-sections" id="help-tagged-menu">
+       <p class="reboot m-2">
+        <strong>
+         Information
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Information menu item provides
+                                                        additional detail about the current Inline document and
+                                                        customizable viewer settings.
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Company and Document - Basic company and document
+                                                                information
+        </li>
+        <li class="reboot">
+         Tags - Fact and tag (standard and custom)
+                                                                information
+        </li>
+        <li class="reboot">
+         Files - Files used
+        </li>
+        <li class="reboot">
+         Additional Items - Additional hidden data
+                                                                that's been tagged but potentially does not have a corresponding
+                                                                location in the HTML
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         Save XBRL Instance
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Save XBRL Instance menu item allows
+                                                        an XBRL instance document (*.xml) that is extracted from the
+                                                        Inline document to be saved locally for use by software
+                                                        supporting the XBRL format.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         Save XBRL Zip
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Save XBRL Zip menu item allows a zip
+                                                        file (*.zip) that contains the as-provided XBRL instance document
+                                                        and related custom taxonomy files to be saved locally.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         Settings
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        The Settings menu item provides the
+                                                        ability to customize Viewer features.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         Tagged Fact Hover
+        </strong>
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         On - Displays the hover fact review
+                                                                window for any tagged fact*
+        </li>
+        <li class="reboot">
+         Off - Hides the hover fact review window
+                                                                for any tagged fact (default)
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        * May impact performance with certain
+                                                        web browsers.
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         Auto Scrolling Position
+        </strong>
+        (This setting will have
+                                                        no effect on IE 10 or Safari)
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Top - Selecting a fact from the Sections
+                                                                Menu or the Fact Menu will automatically scroll that element to
+                                                                the Top of the Inline XBRL viewer window (default)
+        </li>
+        <li class="reboot">
+         Center - Selecting a fact from the
+                                                                Sections Menu or the Fact Menu will automatically scroll that
+                                                                element to the middle of the Inline XBRL viewer window
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         Highlight Colors
+        </strong>
+        (Use the save and reset buttons
+                                                        to save the selected setting or reset to default)
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Tagged Data - Change the highlight color
+                                                                of the tagged fact border
+        </li>
+        <li class="reboot">
+         Search Results - Change the background
+                                                                color of tagged items matching the Search results
+        </li>
+        <li class="reboot">
+         Selected Fact - Change the color of
+                                                                highlight border used to identify the currently selected fact
+        </li>
+        <li class="reboot">
+         Tag Shading (hover) - Change the color of
+                                                                the shading applied to tagged data on hover
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         Search Options
+        </strong>
+       </p>
+       <ul class="reboot">
+        <li class="reboot">
+         Match Case - Matches the specific case of
+                                                                the entered Search keyword
+        </li>
+        <li class="reboot">
+         Include Labels - Extends Search to
+                                                                include tag labels
+        </li>
+        <li class="reboot">
+         Include Definitions - Extends Search to
+                                                                include tag definitions
+        </li>
+        <li class="reboot">
+         Include Dimensions - Extends Search to
+                                                                include dimensional detail
+        </li>
+        <li class="reboot">
+         Include References - Extends Search to
+                                                                include authoritative reference information. Optionally specify
+                                                                the reference parts to include in the search (e.g., topic,
+                                                                subtopic, section)
+        </li>
+       </ul>
+       <p class="reboot m-2">
+        <strong>
+         Help
+        </strong>
+        (this content)
+       </p>
+       <p class="reboot m-2">
+        <strong>
+         Version
+        </strong>
+       </p>
+       <p class="reboot m-2">
+        Indicates the current build of the Inline XBRL viewer
+                                                        application.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="reboot right-sidenav col-sm-3 bg-light invisible" data-test="taxonomies-menu" id="taxonomies-menu">
+    <div class="reboot d-flex flex-column flex-fill h-100">
+     <div class="reboot mb-2">
+      <span class="reboot lead">
+       Facts
+      </span>
+      <a class="reboot float-right click" data-test="taxonomy-secondary-toggle" id="taxonomy-menu-secondary-toggle">
+       <i class="reboot fas fa-times-circle mt-2">
+       </i>
+      </a>
+     </div>
+     <div class="reboot d-flex flex-column flex-fill h-100 w-100" id="taxonomies-menu-list-pagination">
+      <div class="reboot pagination">
+      </div>
+      <div class="reboot form-group">
+       <select aria-label="Quickly jump to a page in the Fact Menu." class="reboot form-control" id="taxonomies-menu-page-select" tabindex="13">
+        <option class="reboot">
+         Select Page
+        </option>
+       </select>
+      </div>
+      <div class="reboot list-group list-group-flush overflow-x-auto w-100">
+       <span class="text-center py-5">
+        Loading.
+       </span>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="reboot d-none" id="back-to-top">
+    <button class="btn btn-sm btn-primary" id="back-to-top-btn" type="button">
+     <i class="reboot fas fa-arrow-up">
+     </i>
+    </button>
+   </div>
+   <div class="position-relative" id="dynamic-xbrl-form">
+    <!--?xml version='1.0' encoding='UTF-8'?-->
+    <!-- iXBRL document created with: Toppan Merrill Bridge iXBRL 10.2.0.4 -->
+    <!-- Based on: iXBRL 1.1 -->
+    <!-- Created on: 3/8/2023 7:07:28 PM -->
+    <!-- iXBRL Library version: 1.0.8405.27969 -->
+    <!-- iXBRL Service Job ID: d5302cf8-a6f5-4108-8282-b0db33d0bd78 -->
+    <meta content="text/html" http-equiv="content-type"/>
+    <title>
+    </title>
+    <script>
+     bazadebezolkohpepadr="681615669"
+    </script>
+    <script defer="" src="https://www.sec.gov/akam/13/28a0a252" type="text/javascript">
+    </script>
+    <div style="margin-top:30pt;">
+    </div>
+    <div style="display:none;">
+     <ix:header>
+      <ix:hidden>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_sdUEReKy4UGgl5xtoyAyEg_2_1" name="dei:EntityCentralIndexKey">
+        0000100591
+       </ix:nonnumeric>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_hIOlQTLWAEq1R_qTZguENg_3_1" name="dei:AmendmentFlag">
+        false
+       </ix:nonnumeric>
+      </ix:hidden>
+      <ix:references>
+       <link:schemaref xlink:href="agx-20230306.xsd" xlink:type="simple">
+       </link:schemaref>
+      </ix:references>
+      <ix:resources>
+       <xbrli:context id="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ">
+        <xbrli:entity>
+         <xbrli:identifier scheme="http://www.sec.gov/CIK">
+          0000100591
+         </xbrli:identifier>
+        </xbrli:entity>
+        <xbrli:period>
+         <xbrli:startdate>
+          2023-03-06
+         </xbrli:startdate>
+         <xbrli:enddate>
+          2023-03-06
+         </xbrli:enddate>
+        </xbrli:period>
+       </xbrli:context>
+      </ix:resources>
+     </ix:header>
+    </div>
+    <div style="max-width:100%;padding-left:11.76%;padding-right:11.76%;position:relative;">
+     <div style="clear:both;max-width:100%;position:relative;min-height:11.5pt;">
+      <a id="_506afd91_284f_430f_b30c_3ed6e87f721b">
+      </a>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        UNITED STATES
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        SECURITIES AND EXCHANGE COMMISSION
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        WASHINGTON, D.C. 20549
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <div style="font-family:'Arial','Helvetica','sans-serif';font-size:10.0pt;margin-bottom:0pt;min-height:1.19em;position:relative;width:100%;">
+       <div style="background-color:#000000;height:1pt;position:relative;top:0.6em;width:15.0%;border:none;margin:0 auto;">
+       </div>
+      </div>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        FORM
+       </b>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_pb2qPHs1mkSihSTlJvUdeQ" name="dei:DocumentType">
+        <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+         8-K
+        </b>
+       </ix:nonnumeric>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        CURRENT REPORT
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        Pursuant to Section 13 or 15(d) of the
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;">
+        Securities Exchange Act of 1934
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        Date of report (Date of Earliest Event Reported):
+       </span>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt:datemonthdayyearen" id="Narr_XTugouLrk02aTbCw5b4kJg" name="dei:DocumentPeriodEndDate">
+        <span style="font-family:'Times New Roman','Times','serif';">
+         March 6, 2023
+        </span>
+       </ix:nonnumeric>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:16pt;line-height:1.19;text-align:center;margin:0pt;">
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_lVx_CjVACkC-tGcfA3fwvw" name="dei:EntityRegistrantName">
+        <span style="font-family:'Times New Roman','Times','serif';text-decoration-color:#000000;text-decoration-line:underline;text-decoration-style:solid;">
+         ARGAN, INC.
+        </span>
+       </ix:nonnumeric>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        (Exact Name of Registrant as Specified in its Charter)
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <a id="_974054ae_bcf1_4e3d_acca_1f1f40180f87">
+      </a>
+      <a id="Tc_FmCnyzD2uU-KS9FbuEHBsw_2_0">
+      </a>
+      <a id="Tc_1c5OIQ7NDkGFGcVHXyYwYw_2_2">
+      </a>
+      <a id="Tc_8iCrOu677EObcFdyZGzRyQ_2_4">
+      </a>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;padding-left:0pt;padding-right:0pt;width:100%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:top;width:31.75%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:31.75%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:stateprovnameen" id="Tc_P4g1xPKvQUOnPoJqxau0DA_1_0" name="dei:EntityIncorporationStateCountryCode">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             Delaware
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_2lx7K90N70mwIBtda0d1bA_1_2" name="dei:EntityFileNumber">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             001-31756
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_j_Bfk2drQU-8asbTfBkoBA_1_4" name="dei:EntityTaxIdentificationNumber">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             13-1947195
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:31.75%;border-top:1px solid #000000;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            (State or Other Jurisdiction
+           </span>
+          </p>
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            of Incorporation)
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;border-top:1px solid #000000;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            (Commission
+           </span>
+          </p>
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            File Number)
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.36%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:31.76%;border-top:1px solid #000000;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            (IRS Employer
+           </span>
+          </p>
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            Identification No.)
+           </span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <a id="_b9b5202d_2325_4191_bae4_8d4c2fc54d0b">
+      </a>
+      <a id="Tc_I7Zs_TLZqkaJYim8S-S3aQ_1_0">
+      </a>
+      <a id="Tc_pVPtPi0gRkCu8vzBbfIZQg_2_0">
+      </a>
+      <a id="Tc_mu7Di6JBRECcmZwaS5n0vg_2_2">
+      </a>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;padding-left:0pt;padding-right:0pt;width:100%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:top;width:48.68%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.63%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:48.67%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:48.68%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_IUzJ97uSmU-WQE9sds3w2w" name="dei:EntityAddressAddressLine1">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             One Church Street
+            </span>
+           </ix:nonnumeric>
+           <span style="font-family:'Times New Roman','Times','serif';">
+            ,
+           </span>
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_XSo5t6iyZ0mANd71M4aURA" name="dei:EntityAddressAddressLine2">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             Suite 201
+            </span>
+           </ix:nonnumeric>
+           <span style="font-family:'Times New Roman','Times','serif';">
+            ,
+           </span>
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_okorL_-c0Uy9e35o-W8oWg" name="dei:EntityAddressCityOrTown">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             Rockville
+            </span>
+           </ix:nonnumeric>
+           <span style="font-family:'Times New Roman','Times','serif';">
+            ,
+           </span>
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_lIdTf8_A4kyC2cAOmTBUIA" name="dei:EntityAddressStateOrProvince">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             MD
+            </span>
+           </ix:nonnumeric>
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.63%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:48.67%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_8dLRPWxCVUuR-sOkQVTxmA_1_2" name="dei:EntityAddressPostalZipCode">
+            <span style="font-family:'Times New Roman','Times','serif';">
+             20850
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:48.68%;border-top:1px solid #000000;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            (Address of Principal Executive Offices)
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:middle;width:2.63%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:48.67%;border-top:1px solid #000000;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            (Zip Code)
+           </span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        Registrant’s telephone number, including area code: (
+       </span>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_DHh5u1Cm-0C3DqB_i8x24g" name="dei:CityAreaCode">
+        <span style="font-family:'Times New Roman','Times','serif';">
+         301
+        </span>
+       </ix:nonnumeric>
+       <span style="font-family:'Times New Roman','Times','serif';">
+        )
+       </span>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Narr_SbLog5OZZUSdBUJO4WBdoQ" name="dei:LocalPhoneNumber">
+        <span style="font-family:'Times New Roman','Times','serif';">
+         315-0027
+        </span>
+       </ix:nonnumeric>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';text-decoration-color:#000000;text-decoration-line:underline;text-decoration-style:solid;">
+        Not Applicable
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        (Former Name or Former Address, if Changed Since Last Report)
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        Check the appropriate box below if the Form 8-K filing is intended to simultaneously satisfy the filing obligation of the Registrant under any of the following provisions:
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+       </span>
+      </p>
+      <a id="_5c479fb7_2a61_4b07_aea8_daab09317081">
+      </a>
+      <a id="Tc_t_qh94JEYkSEV9KqjP9ZAg_1_1">
+      </a>
+      <a id="Tc_JWQtk8Hv6UagqfLQMOwhyA_2_1">
+      </a>
+      <a id="Tc_8qK2wjVxwkCQNpNxrzDYRA_3_1">
+      </a>
+      <a id="Tc_halOeyKffk6eTMDC5afaWQ_4_1">
+      </a>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;padding-left:0pt;padding-right:0pt;width:100%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:top;width:3.79%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:0pt;width:100%;">
+            <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+             <span style="font-size:1pt;visibility:hidden;">
+              ​
+             </span>
+            </p>
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:top;width:96.2%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:0pt;width:100%;">
+            <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+             <span style="font-size:1pt;visibility:hidden;">
+              ​
+             </span>
+            </p>
+           </div>
+          </div>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:3.79%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:boolballotbox" id="Tc_deP7DEHkskq2ILoqDB6XbA_1_0" name="dei:WrittenCommunications">
+            <span style="font-family:'Segoe UI Symbol';">
+             ☐
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:96.2%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:3.79%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:boolballotbox" id="Tc_YWNAbDflJE6viW_ph6jwWw_2_0" name="dei:SolicitingMaterial">
+            <span style="font-family:'Segoe UI Symbol';">
+             ☐
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:96.2%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240.14a-12)
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:3.79%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:boolballotbox" id="Tc_Mp7i_osQNEqH6yGgmWFX9Q_3_0" name="dei:PreCommencementTenderOffer">
+            <span style="font-family:'Segoe UI Symbol';">
+             ☐
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:96.2%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 4pt 0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:3.79%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:boolballotbox" id="Tc_qYNcvOUxYUaYFvU3d7nVuw_4_0" name="dei:PreCommencementIssuerTenderOffer">
+            <span style="font-family:'Segoe UI Symbol';">
+             ☐
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:96.2%;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';">
+            Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+           </span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        Indicate by check mark whether the Registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';">
+        Emerging growth company
+       </span>
+       <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:boolballotbox" id="Narr_ZMcfRNefOkaExCkHGZBQVw" name="dei:EntityEmergingGrowthCompany">
+        <span style="font-family:'Segoe UI Symbol';">
+         ☐
+        </span>
+       </ix:nonnumeric>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';white-space:pre-wrap;">
+        If an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act.
+       </span>
+       <span style="font-family:'Segoe UI Symbol';">
+        ☐
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <a id="_f4baafdb_b83e_49ee_8df6_2ad8d13a04b5">
+      </a>
+      <a id="Tc_1emZH3hh4UK2gdz_hH57Jg_1_0">
+      </a>
+      <a id="Tc_MvKgoxKCZkWUzl52UyP8Gg_1_2">
+      </a>
+      <a id="Tc_uMfcrbInDU2x80JEN8DWbg_1_4">
+      </a>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;width:101.95%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:bottom;width:26.43%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:26.43%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:26.43%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-size:1pt;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr style="height:21.95pt;">
+         <td style="vertical-align:bottom;width:26.43%;border-bottom:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:9pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;background:#ffffff;">
+            Title of Each Class:
+           </b>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;font-weight:bold;margin-left:0pt;visibility:hidden;background:#ffffff;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:26.43%;border-bottom:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:9pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;background:#ffffff;">
+            Trading Symbol(s):
+           </b>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;font-weight:bold;margin-left:0pt;visibility:hidden;background:#ffffff;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:26.43%;border-bottom:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:9pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;background:#ffffff;">
+            Name of Each Exchange on
+           </b>
+           <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;background:#ffffff;">
+            <br/>
+           </b>
+           <b style="font-family:'Times New Roman','Times','serif';font-weight:bold;background:#ffffff;">
+            Which Registered:
+           </b>
+          </p>
+         </td>
+        </tr>
+        <tr style="height:21.95pt;">
+         <td style="vertical-align:top;width:26.43%;border-top:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt -5.25pt 0pt -6pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_lv9UzJwki0CAYpifufxVDQ_2_0" name="dei:Security12bTitle">
+            <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;background:#ffffff;">
+             Common Stock, $0.15 Par Value
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;margin-left:0pt;visibility:hidden;background:#ffffff;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:26.43%;border-top:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" id="Tc_JxYaHHwcmEur0tjwYKdqbg_2_2" name="dei:TradingSymbol">
+            <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;background:#ffffff;">
+             AGX
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:10.34%;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;margin-left:0pt;visibility:hidden;background:#ffffff;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:26.43%;border-top:1px solid #000000;margin:0pt;padding:0pt 5.4pt 0pt 5.4pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt 0pt 0pt -6pt;">
+           <ix:nonnumeric contextref="Duration_3_6_2023_To_3_6_2023__T4C7wBV-Ey0U5XLZqATYQ" format="ixt-sec:exchnameen" id="Tc_nBS-ISxL-UmUJOJVECrH0g_2_4" name="dei:SecurityExchangeName">
+            <span style="font-family:'Times New Roman','Times','serif';font-size:9pt;background:#ffffff;">
+             New York Stock Exchange
+            </span>
+           </ix:nonnumeric>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="font-size:1pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.28;margin:0pt 0pt 8pt 0pt;">
+       <span style="line-height:1.19;margin-bottom:0pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+     </div>
+    </div>
+    <div style="background-color:#000000;clear:both;height:2pt;page-break-after:always;width:76.47%;border:0;margin:30pt 11.76% 30pt 11.76%;">
+    </div>
+    <div style="max-width:100%;padding-left:11.76%;padding-right:11.76%;position:relative;">
+     <div style="clear:both;max-width:100%;position:relative;">
+      <a id="_fda08ba6_5a43_4d56_9ad0_727c35d2c9ef">
+      </a>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;white-space:pre-wrap;background:#ffffff;">
+        Item 1.01.  Entry into a Material Definitive Agreement.
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+        On March 6, 2023, Argan, Inc. (the “Company”) and certain of its subsidiaries, entered into the Second Amendment (the “Second Amendment”) to the Amended and Restated Replacement Credit Agreement which provides for a $50 million credit commitment (the “Credit Facility”) with Bank of America, N.A., as the lender.
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+        The Second Amendment modifies the Credit Facility to, among other things, replace the interest pricing from the 30-day London Interbank Offered Rate (“LIBOR”) plus 1.6% to the Secured Overnight Financing Rate (“SOFR”) plus 1.6% and adds SOFR successor rate language. The Credit Facility, as amended, continues to include customary terms, covenants and events of default for a credit facility of its size and nature. As of March 6, 2023, prior to the closing on the Second Amendment, the Company had $11.1 million of credit outstanding under the Credit Facility.
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+        The foregoing summary of the Credit Facility is not complete and is qualified in its entirety by reference to the Second Amendment, which is filed as Exhibit 10.1 to this Current Report on Form 8-K and incorporated by reference herein, the First Amendment to the Amended and Restated Replacement Credit Agreement, which was included as Exhibit 10.1 to the Current Report on Form 8-K filed April 30, 2021, and the Amended and Restated Replacement Credit Agreement, which was included as Exhibit 10.1 to the Current Report on Form 8-K filed May 17, 2017.
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;white-space:pre-wrap;background:#ffffff;">
+        Item 2.03.  Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant.
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+        The information set forth under Item 1.01 is incorporated by reference into this Item 2.03.
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;white-space:pre-wrap;background:#ffffff;">
+        Item 9.01.  Financial Statements and Exhibits.
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt 0pt 8pt 0pt;">
+       <span style="display:inline-block;text-indent:0pt;width:36pt;">
+        <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-style:normal;font-weight:normal;background:#ffffff;">
+         (d)
+        </span>
+       </span>
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;background:#ffffff;">
+        Exhibits
+       </span>
+      </p>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;margin-left:auto;margin-right:auto;padding-left:0pt;padding-right:0pt;width:100%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:bottom;white-space:nowrap;width:12.82%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:bottom;width:2.52%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:bottom;white-space:nowrap;width:84.65%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:bottom;white-space:nowrap;width:12.82%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;text-align:center;border-bottom:1px solid #000000;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Exhibit No.
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:2.52%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;white-space:nowrap;width:84.65%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;border-bottom:1px solid #000000;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Description
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr style="height:6pt;">
+         <td style="vertical-align:middle;width:12.82%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td colspan="2" style="vertical-align:middle;width:87.17%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;white-space:nowrap;width:12.82%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            10.1
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:2.52%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:84.65%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <a href="agx-20230306xex10d1.htm" style="-sec-extract:exhibit;font-family:&quot;'Times New Roman','Times','serif'&quot;;font-size:12pt;">
+            <span style="font-family:'Times New Roman','Times','serif';font-style:normal;font-weight:normal;">
+             Second Amendment to Amended and Restated Replacement Credit Agreement, dated March 6, 2023, among Argan, Inc. and certain subsidiaries of Argan, Inc., as borrowers, and Bank of America, N.A., as the lender.
+            </span>
+           </a>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;white-space:nowrap;width:12.82%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;text-align:center;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            104
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:2.52%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;line-height:1.19;visibility:hidden;">
+            ​
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:84.65%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.27;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Cover Page Interactive Data File (embedded within the Inline XBRL document)
+           </span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.28;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;line-height:1.19;margin-bottom:0pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.28;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;line-height:1.19;margin-bottom:0pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+     </div>
+    </div>
+    <div style="background-color:#000000;clear:both;height:2pt;page-break-after:always;width:76.47%;border:0;margin:30pt 11.76% 30pt 11.76%;">
+    </div>
+    <div style="max-width:100%;padding-left:11.76%;padding-right:11.76%;position:relative;">
+     <div style="clear:both;max-width:100%;position:relative;">
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.28;margin:0pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;line-height:1.19;margin-bottom:0pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;text-align:center;margin:0pt;">
+       <b style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;">
+        SIGNATURES
+       </b>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;background:#ffffff;margin:12pt 0pt 8pt 0pt;">
+       <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+        Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
+       </span>
+      </p>
+      <table style="border-collapse:collapse;font-size:16pt;height:max-content;padding-left:0pt;padding-right:0pt;width:100%;">
+       <tbody>
+        <tr style="height:1pt;">
+         <td style="vertical-align:middle;width:45.72%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:50%;transform:translate(0,-50%);width:100%;">
+            <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+             <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+             </span>
+            </p>
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:middle;width:3.69%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:50%;transform:translate(0,-50%);width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:middle;width:3.7%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:50%;transform:translate(0,-50%);width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="bottom:0pt;position:absolute;width:100%;">
+           </div>
+          </div>
+         </td>
+         <td style="vertical-align:middle;width:44.72%;margin:0pt;padding:0pt;">
+          <div style="height:1pt;overflow:hidden;overflow-wrap:break-word;position:relative;">
+           <div style="position:absolute;top:50%;transform:translate(0,-50%);width:100%;">
+           </div>
+          </div>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:middle;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:middle;width:3.69%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:middle;width:3.7%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:middle;width:44.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.69%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td colspan="3" style="vertical-align:bottom;width:49.14%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <b style="font-family:'Times New Roman','Times','serif';font-size:12pt;font-weight:bold;">
+            ARGAN, INC.
+           </b>
+          </p>
+         </td>
+        </tr>
+        <tr style="height:12pt;">
+         <td style="vertical-align:middle;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td colspan="2" style="vertical-align:middle;width:4.41%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td colspan="2" style="vertical-align:middle;width:4.42%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td colspan="2" style="vertical-align:middle;width:45.43%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Date: March 8, 2023
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.69%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.7%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            By:
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:44.72%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;border-bottom:1px solid #000000;margin:0pt 0pt 1pt 0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            /s/ Richard H. Deily
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.69%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.7%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:44.72%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Richard H. Deily
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td style="vertical-align:top;width:45.72%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.69%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:bottom;width:3.7%;background:#ffffff;margin:0pt;padding:0pt;">
+         </td>
+         <td style="vertical-align:bottom;width:0.71%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+           </span>
+          </p>
+         </td>
+         <td style="vertical-align:top;width:44.72%;background:#ffffff;margin:0pt;padding:0pt;">
+          <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;padding-left:11.5pt;text-indent:-11.5pt;margin:0pt;">
+           <span style="font-family:'Times New Roman','Times','serif';font-size:12pt;">
+            Senior Vice President, Chief Financial Officer, Treasurer and Corporate Secretary
+           </span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.19;margin:0pt;">
+       <span style="visibility:hidden;">
+        ​
+       </span>
+      </p>
+      <p style="font-family:'Arial','Helvetica','sans-serif';font-size:10pt;line-height:1.28;margin:0pt 0pt 8pt 0pt;">
+       <span style="line-height:1.19;margin-bottom:0pt;visibility:hidden;">
+        ​
+       </span>
+      </p>
+     </div>
+    </div>
+    <div style="background-color:#000000;clear:both;height:2pt;margin-left:11.76%;margin-right:11.76%;margin-top:30pt;page-break-after:avoid;width:76.47%;border:0;">
+    </div>
+    <noscript>
+     <img src="https://www.sec.gov/akam/13/pixel_28a0a252?a=dD0zZTMwZDNlZGQzM2Y5OTM0MGM1MDg2MzRmZWQ5MTRiMGI0YWQ4NDYwJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;"/>
+    </noscript>
+   </div>
+  </div>
+  <div class="reboot dialog-box fixed-dialog-box d-none bg-white" data-test="form-information-modal" id="form-information-modal">
+   <div class="reboot dialog-header bg-sec text-white px-1 d-flex justify-content-between">
+    <p class="reboot lead mb-0" data-test="form-information-modal-title" id="form-information-modal-title">
+    </p>
+    <div class="reboot dialog-header-actions">
+     <i class="reboot fas fa-arrows-alt m-1 drag-icon d-none d-sm-inline-block" id="form-information-modal-drag" tabindex="14" title="Click and drag to move this Dialog Box.">
+     </i>
+     <i class="reboot fas fa-copy m-1 click" id="dialog-box-copy-content" tabindex="14" title="Click to Copy all Dialog Box Content.">
+     </i>
+     <i class="reboot fas fa-times m-1 click" data-name="Form Information Modal" id="dialog-box-close" tabindex="14" title="Click to Close this Dialog Box.">
+     </i>
+    </div>
+   </div>
+   <div class="reboot dialog-content">
+    <div class="reboot form-group d-none" id="form-information-copy-paste">
+     <label class="reboot">
+      Copy and Paste Below Content.
+     </label>
+     <a class="reboot float-right click color-inherit" id="dialog-content-copy-content" tabindex="14">
+      <i class="reboot fas fa-times-circle mt-2">
+      </i>
+     </a>
+     <textarea class="reboot form-control" rows="5" tabindex="14"></textarea>
+    </div>
+    <div class="reboot carousel" data-interval="false" data-ride="carousel" id="form-information-modal-carousel">
+     <div class="reboot carousel-inner">
+      <div class="reboot carousel-item table-responsive active">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="form-information-modal-carousel-page-1" tabindex="14">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-bordered table-sm">
+        <tbody class="reboot" id="form-information-modal-carousel-page-2" tabindex="14">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="form-information-modal-carousel-page-3" tabindex="14">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="form-information-modal-carousel-page-4" tabindex="14">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="reboot dialog-footer d-flex justify-content-around">
+    <button class="reboot btn btn-link text-dark" data-slide="prev" href="#form-information-modal-carousel" id="form-information-prev" role="button" tabindex="14">
+     <i class="reboot fas fa-chevron-left" title="Previous">
+     </i>
+     <span class="reboot sr-only">
+      Previous
+     </span>
+    </button>
+    <ol class="reboot carousel-indicators mx-0 my-3 p-initial" id="form-information-carousel-indicators">
+    </ol>
+    <button class="reboot btn btn-link text-dark" data-slide="next" data-test="form-information-next" href="#form-information-modal-carousel" id="form-information-next" role="button" tabindex="14">
+     <i class="reboot fas fa-chevron-right" title="Next">
+     </i>
+     <span class="reboot sr-only">
+      Next
+     </span>
+    </button>
+   </div>
+  </div>
+  <div class="reboot dialog-box fixed-dialog-box d-none bg-white" data-test="settings-modal" id="settings-modal">
+   <div class="reboot dialog-header bg-sec text-white px-1 d-flex justify-content-between">
+    <p class="reboot lead mb-0" data-test="settings-modal-title" id="settings-modal-title">
+     Settings
+    </p>
+    <div class="reboot dialog-header-actions">
+     <i class="reboot fas fa-arrows-alt m-1 drag-icon d-none d-sm-inline-block" id="settings-modal-drag" tabindex="15" title="Click and drag to move this Dialog Box.">
+     </i>
+     <i class="reboot fas fa-times m-1 click" data-name="Settings Modal" id="settings-modal-close" tabindex="15" title="Click to Close this Dialog Box.">
+     </i>
+    </div>
+   </div>
+   <div class="reboot dialog-content">
+    <form class="reboot">
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       Hover
+                                                over Fact for quick information.
+      </label>
+      <select class="reboot col-sm-8 form-control" id="hover-option-select" tabindex="15">
+       <option class="reboot" value="true">
+        On
+       </option>
+       <option class="reboot" value="false">
+        Off
+       </option>
+      </select>
+     </div>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       Auto
+                                                Scrolling Position
+      </label>
+      <select class="reboot col-sm-8 form-control" id="scroll-position-select" tabindex="15">
+       <option class="reboot" value="start">
+        Top
+       </option>
+       <option class="reboot" value="center">
+        Center
+       </option>
+      </select>
+      <small class="reboot form-text text-muted col-sm-12" tabindex="15">
+       Selecting
+                                                a fact from the Sections Menu or the Fact Menu will automatically
+                                                scroll that element to the (Top, or Middle) of the viewer window.
+                                                This setting will have no use on IE 10, or Safari.
+      </small>
+     </div>
+     <hr class="reboot"/>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       <span class="reboot tagged-data-example-1">
+        Tagged Data
+       </span>
+      </label>
+      <div class="reboot col-sm-4">
+       <div class="reboot" id="tagged-data-color-picker" tabindex="15">
+        <div class="picker_wrapper layout_default no_alpha no_editor" tabindex="-1">
+         <div class="picker_arrow">
+         </div>
+         <div class="picker_hue picker_slider" style="color: rgb(255, 102, 0);">
+          <div class="picker_selector" style="left: 6.66667%;">
+          </div>
+         </div>
+         <div class="picker_sl" style="background-color: rgb(255, 102, 0); color: rgb(255, 102, 0);">
+          <div class="picker_selector" style="left: 100%; top: 50%;">
+          </div>
+         </div>
+         <div class="picker_alpha picker_slider" style="background-image: linear-gradient(rgb(255, 102, 0), rgba(255, 102, 0, 0)), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E&quot;);">
+          <div class="picker_selector" style="top: 0%;">
+          </div>
+         </div>
+         <div class="picker_editor">
+          <input aria-label="Type a color name or hex value"/>
+         </div>
+         <div class="picker_sample" style="color: rgb(255, 102, 0);">
+         </div>
+         <div class="picker_done">
+          <button>
+           Save
+          </button>
+         </div>
+         <div class="picker_cancel">
+          <button>
+           Reset
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <hr/>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       <span class="reboot search-results-example-1">
+        Search
+                                                        Results
+       </span>
+      </label>
+      <div class="reboot col-sm-4">
+       <div class="reboot" id="search-results-color-picker" tabindex="15">
+        <div class="picker_wrapper layout_default no_alpha no_editor" tabindex="-1">
+         <div class="picker_arrow">
+         </div>
+         <div class="picker_hue picker_slider" style="color: rgb(255, 215, 0);">
+          <div class="picker_selector" style="left: 14.0523%;">
+          </div>
+         </div>
+         <div class="picker_sl" style="background-color: rgb(255, 215, 0); color: rgb(255, 215, 0);">
+          <div class="picker_selector" style="left: 100%; top: 50%;">
+          </div>
+         </div>
+         <div class="picker_alpha picker_slider" style="background-image: linear-gradient(rgb(255, 215, 0), rgba(255, 215, 0, 0)), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E&quot;);">
+          <div class="picker_selector" style="top: 0%;">
+          </div>
+         </div>
+         <div class="picker_editor">
+          <input aria-label="Type a color name or hex value"/>
+         </div>
+         <div class="picker_sample" style="color: rgb(255, 215, 0);">
+         </div>
+         <div class="picker_done">
+          <button>
+           Save
+          </button>
+         </div>
+         <div class="picker_cancel">
+          <button>
+           Reset
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <hr/>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       <span class="reboot selected-fact-example-1">
+        Selected Fact
+       </span>
+      </label>
+      <div class="reboot col-sm-4">
+       <div class="reboot" id="selected-fact-color-picker" tabindex="15">
+        <div class="picker_wrapper layout_default no_alpha no_editor" tabindex="-1">
+         <div class="picker_arrow">
+         </div>
+         <div class="picker_hue picker_slider" style="color: rgb(0, 135, 255);">
+          <div class="picker_selector" style="left: 57.8526%;">
+          </div>
+         </div>
+         <div class="picker_sl" style="background-color: rgb(0, 135, 255); color: rgb(0, 55, 104);">
+          <div class="picker_selector" style="left: 100%; top: 79.6078%;">
+          </div>
+         </div>
+         <div class="picker_alpha picker_slider" style="background-image: linear-gradient(rgb(0, 55, 104), rgba(0, 55, 104, 0)), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E&quot;);">
+          <div class="picker_selector" style="top: 0%;">
+          </div>
+         </div>
+         <div class="picker_editor">
+          <input aria-label="Type a color name or hex value"/>
+         </div>
+         <div class="picker_sample" style="color: rgb(0, 55, 104);">
+         </div>
+         <div class="picker_done">
+          <button>
+           Save
+          </button>
+         </div>
+         <div class="picker_cancel">
+          <button>
+           Reset
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <hr/>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       <span class="reboot tag-shading-exmple-1">
+        Tag Shading
+                                                        (hover)
+       </span>
+      </label>
+      <div class="reboot col-sm-4">
+       <div class="reboot" id="tag-shading-color-picker" tabindex="15">
+        <div class="picker_wrapper layout_default no_editor" tabindex="-1">
+         <div class="picker_arrow">
+         </div>
+         <div class="picker_hue picker_slider" style="color: rgb(255, 0, 0);">
+          <div class="picker_selector" style="left: 0%;">
+          </div>
+         </div>
+         <div class="picker_sl" style="background-color: rgb(255, 0, 0); color: rgb(255, 0, 0);">
+          <div class="picker_selector" style="left: 100%; top: 50%;">
+          </div>
+         </div>
+         <div class="picker_alpha picker_slider" style="background-image: linear-gradient(rgb(255, 0, 0), rgba(255, 0, 0, 0)), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E&quot;);">
+          <div class="picker_selector" style="top: 70%;">
+          </div>
+         </div>
+         <div class="picker_editor">
+          <input aria-label="Type a color name or hex value"/>
+         </div>
+         <div class="picker_sample" style="color: rgba(255, 0, 0, 0.3);">
+         </div>
+         <div class="picker_done">
+          <button>
+           Save
+          </button>
+         </div>
+         <div class="picker_cancel">
+          <button>
+           Reset
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <hr/>
+     <div class="reboot form-group row">
+      <label class="reboot col-sm-4 col-form-label" tabindex="15">
+       <span class="reboot text-block-exmple-1">
+        Text Block Indicators
+       </span>
+      </label>
+      <div class="reboot col-sm-4">
+       <div class="reboot" id="text-block-color-picker" tabindex="15">
+        <div class="picker_wrapper layout_default no_alpha no_editor" tabindex="-1">
+         <div class="picker_arrow">
+         </div>
+         <div class="picker_hue picker_slider" style="color: rgb(0, 135, 255);">
+          <div class="picker_selector" style="left: 57.8526%;">
+          </div>
+         </div>
+         <div class="picker_sl" style="background-color: rgb(0, 135, 255); color: rgb(0, 55, 104);">
+          <div class="picker_selector" style="left: 100%; top: 79.6078%;">
+          </div>
+         </div>
+         <div class="picker_alpha picker_slider" style="background-image: linear-gradient(rgb(0, 55, 104), rgba(0, 55, 104, 0)), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'%3E%3Cpath d='M1,0H0V1H2V2H1' fill='lightgrey'/%3E%3C/svg%3E&quot;);">
+          <div class="picker_selector" style="top: 0%;">
+          </div>
+         </div>
+         <div class="picker_editor">
+          <input aria-label="Type a color name or hex value"/>
+         </div>
+         <div class="picker_sample" style="color: rgb(0, 55, 104);">
+         </div>
+         <div class="picker_done">
+          <button>
+           Save
+          </button>
+         </div>
+         <div class="picker_cancel">
+          <button>
+           Reset
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="reboot dialog-footer d-flex justify-content-around">
+   </div>
+  </div>
+  <div class="reboot dialog-box fixed-dialog-box d-none bg-white" id="taxonomy-modal">
+   <div class="reboot dialog-header bg-sec text-white px-1 d-flex justify-content-between">
+    <p class="reboot lead mb-0" id="taxonomy-modal-title">
+    </p>
+    <div class="reboot dialog-header-actions">
+     <i class="reboot fas fa-arrows-alt m-1 drag-icon d-none d-sm-inline-block" id="taxonomy-modal-drag" tabindex="16" title="Click and drag to move this Dialog Box.">
+     </i>
+     <i class="reboot fas fa-directions m-1 click" id="taxonomy-modal-jump" tabindex="16" title="Click to see this in the Facts sidebar.">
+     </i>
+     <i class="reboot fas fa-copy m-1 click" id="taxonomy-modal-copy-content" tabindex="16">
+     </i>
+     <i class="reboot fas fa-compress m-1 click d-none" id="taxonomy-modal-compress" tabindex="16">
+     </i>
+     <i class="reboot fas fa-expand m-1 click d-none" id="taxonomy-modal-expand" tabindex="16">
+     </i>
+     <i class="reboot fas fa-times m-1 click" id="taxonomy-modal-close" tabindex="16">
+     </i>
+    </div>
+   </div>
+   <div class="reboot dialog-content">
+    <p class="reboot text-center font-weight-bold" id="taxonomy-modal-subtitle">
+    </p>
+    <div class="reboot form-group d-none" id="taxonomy-copy-paste">
+     <label>
+      Copy and Paste Below Content.
+     </label>
+     <a class="reboot float-right click color-inherit" id="taxonomy-copy-content" tabindex="16">
+      <i class="reboot fas fa-times-circle mt-2">
+      </i>
+     </a>
+     <textarea class="reboot form-control" rows="5" tabindex="16"></textarea>
+    </div>
+    <div class="reboot carousel" data-interval="false" data-keyboard="false" id="taxonomy-modal-carousel">
+     <div class="reboot carousel-inner">
+      <div class="reboot carousel-item table-responsive active">
+       <table class="reboot table table-striped table-sm" id="taxonomy-modal-carousel-page-1" tabindex="16">
+        <!-- Below is populated dynamically VIA JS -->
+        <tbody class="reboot">
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm" id="taxonomy-modal-carousel-page-2" tabindex="16">
+        <!-- Below is populated dynamically VIA JS -->
+        <tbody class="reboot">
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm" id="taxonomy-modal-carousel-page-3" tabindex="16">
+        <!-- Below is populated dynamically VIA JS -->
+        <tbody class="reboot">
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm" id="taxonomy-modal-carousel-page-4" tabindex="16">
+        <!-- Below is populated dynamically VIA JS -->
+        <tbody class="reboot">
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="reboot dialog-footer d-flex justify-content-around">
+    <button class="reboot btn btn-link text-dark" data-slide="prev" data-test="modal-taxonomy-prev" href="#taxonomy-modal-carousel" role="button" tabindex="16">
+     <i class="reboot fas fa-chevron-left" title="Previous">
+     </i>
+     <span class="reboot sr-only">
+      Previous
+     </span>
+    </button>
+    <ol class="reboot carousel-indicators mx-0 my-3 p-initial" id="taxonomy-modal-carousel-indicators">
+    </ol>
+    <button class="reboot btn btn-link text-dark" data-slide="next" data-test="modal-taxonomy-next" href="#taxonomy-modal-carousel" role="button" tabindex="16">
+     <i class="reboot fas fa-chevron-right" title="Next">
+     </i>
+     <span class="reboot sr-only">
+      Next
+     </span>
+    </button>
+   </div>
+  </div>
+  <div class="reboot dialog-box fixed-dialog-box d-none bg-white" id="taxonomy-nested-modal">
+   <div class="reboot dialog-header bg-sec text-white px-1 d-flex justify-content-between">
+    <p class="reboot lead mb-0">
+     Nested Facts
+     <span class="reboot" id="nested-page">
+     </span>
+     <span class="reboot">
+      /
+     </span>
+     <span class="reboot" id="nested-count">
+     </span>
+    </p>
+    <div class="reboot dialog-header-actions">
+     <i class="reboot fas fa-arrows-alt m-1 drag-icon d-none d-sm-inline-block" id="taxonomy-nested-modal-drag" tabindex="17" title="Click and drag to move this Dialog Box.">
+     </i>
+     <i class="reboot fas fa-directions m-1 click" id="nested-taxonomy-modal-jump" tabindex="17" title="Click to see this in the Facts sidebar.">
+     </i>
+     <i class="reboot fas fa-copy m-1 click" id="taxonomy-nested-modal-copy-content" tabindex="17">
+     </i>
+     <i class="reboot fas fa-compress m-1 click d-none" id="taxonomy-nested-modal-compress" tabindex="17">
+     </i>
+     <i class="reboot fas fa-expand m-1 click d-none" id="taxonomy-nested-modal-expand" tabindex="17">
+     </i>
+     <i class="reboot fas fa-times m-1 click" id="taxonomy-nested-modal-close" tabindex="17">
+     </i>
+    </div>
+   </div>
+   <div class="reboot dialog-content pt-0">
+    <div class="reboot carousel" data-interval="false" data-keyboard="false" id="modal-nested-fact-labels">
+     <div class="reboot d-flex">
+      <button class="reboot btn btn-link text-dark" data-slide="prev" data-test="modal-taxonomy-nested-prev" href="#modal-nested-fact-labels" role="button" tabindex="17">
+       <i class="reboot fas fa-chevron-left" title="Previous">
+       </i>
+       <span class="reboot sr-only">
+        Previous
+       </span>
+      </button>
+      <div class="reboot carousel-inner" id="modal-taxonomy-nested-label-carousel">
+       <!-- Below is populated dynamically VIA JS -->
+      </div>
+      <button class="reboot btn btn-link text-dark" data-slide="next" data-test="modal-taxonomy-nested-next" href="#modal-nested-fact-labels" role="button" tabindex="17">
+       <i class="reboot fas fa-chevron-right" title="Next">
+       </i>
+       <span class="reboot sr-only">
+        Next
+       </span>
+      </button>
+     </div>
+    </div>
+    <div class="reboot form-group d-none" id="taxonomy-nested-copy-paste">
+     <label class="reboot">
+      Copy and Paste Below Content.
+     </label>
+     <a class="reboot float-right click color-inherit" id="taxonomy-nested-copy-content" tabindex="17">
+      <i class="reboot fas fa-times-circle mt-2">
+      </i>
+     </a>
+     <textarea class="reboot form-control" rows="5" tabindex="17"></textarea>
+    </div>
+    <div class="reboot carousel" data-interval="false" data-keyboard="false" id="modal-taxonomy-nested-content-carousel">
+     <div class="reboot carousel-inner">
+      <div class="reboot carousel-item table-responsive active">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="modal-taxonomy-nested-content-carousel-page-1" tabindex="17">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-bordered table-sm">
+        <tbody class="reboot" id="modal-taxonomy-nested-content-carousel-page-2" tabindex="17">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="modal-taxonomy-nested-content-carousel-page-3" tabindex="17">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="reboot carousel-item table-responsive">
+       <table class="reboot table table-striped table-sm">
+        <tbody class="reboot" id="modal-taxonomy-nested-content-carousel-page-4" tabindex="17">
+         <!-- Below is populated dynamically VIA JS -->
+         <tr class="reboot">
+          <td class="reboot text-center">
+           <i class="reboot fas fa-spinner fa-spin">
+           </i>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="reboot dialog-footer d-flex justify-content-around" id="taxonomy-nested-nav-controls">
+    <button class="reboot btn btn-link text-dark" data-slide="prev" data-test="modal-taxonomy-prev" href="#modal-taxonomy-nested-content-carousel" role="button" tabindex="17">
+     <i class="reboot fas fa-chevron-left" title="Previous">
+     </i>
+     <span class="reboot sr-only">
+      Previous
+     </span>
+    </button>
+    <ol class="reboot carousel-indicators mx-0 my-3 p-initial" id="taxonomy-nested-modal-carousel-indicators">
+     <!-- Below is populated dynamically VIA JS -->
+    </ol>
+    <button class="reboot btn btn-link text-dark" data-slide="next" data-test="modal-taxonomy-next" href="#modal-taxonomy-nested-content-carousel" role="button" tabindex="17">
+     <i class="reboot fas fa-chevron-right" title="Next">
+     </i>
+     <span class="reboot sr-only">
+      Next
+     </span>
+    </button>
+   </div>
+  </div>
+  <noscript>
+   <img src="https://www.sec.gov/akam/13/pixel_28a0a252?a=dD0zZTMwZDNlZGQzM2Y5OTM0MGM1MDg2MzRmZWQ5MTRiMGI0YWQ4NDYwJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;"/>
+  </noscript>
+ </body>
+</html>
